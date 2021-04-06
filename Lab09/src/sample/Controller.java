@@ -45,7 +45,7 @@ public class Controller {
         BufferedReader reader = new BufferedReader(inStream);
         String line;
         int lineCounter = 0;
-        while ((line = reader.readLine()) != null) {                
+        while ((line = reader.readLine()) != null) {
             String[] columns = line.split(",");
             if(lineCounter > 0) {
                 data.add(Float.valueOf(columns[4]));
@@ -57,7 +57,7 @@ public class Controller {
 
     public void plotLine(ArrayList<Float> list) {
 
-        float x_interval = 720.0f/(list.size());                //px length/num data points = interval
+        float x_interval = 720.0f/(list.size());
         for(int i = 0; i <(list.size()-1);i++){
             gc.strokeLine(x_interval*i +50,800-list.get(i), x_interval*(i+1)+50, 800-list.get(i+1));
         }
@@ -68,8 +68,8 @@ public class Controller {
         //Draw grid
         gc.setStroke(Color.BLACK);
         gc.setLineWidth(2);
-        gc.strokeLine(50, 20, 50, 800);            //yaxis
-        gc.strokeLine(50, 800, 770, 800);          //xaxis
+        gc.strokeLine(50, 20, 50, 800);
+        gc.strokeLine(50, 800, 770, 800);
 
         gc.setStroke(colour);
         plotLine(data);
